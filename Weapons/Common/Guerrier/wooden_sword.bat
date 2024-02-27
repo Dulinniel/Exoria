@@ -1,9 +1,8 @@
 @echo off
-setlocal
 
-SET _weapon.name=√©p√©e en bois
+SET _weapon.name=ÇpÇe en bois
 SET _weapon.class=Guerrier
-SET _weapon.description=L'√©p√©e de tous les guerriers, elle est utilis√©e pour les entra√Ænements, mais elle peut aussi tuer
+SET _weapon.description=L'ÇpÇe de tous les guerriers, elle est utilisÇe pour les entraånements, mais elle peut aussi tuer
 SET _weapon.magic_power=0
 SET _weapon.force=7
 SET _weapon.type=Physic
