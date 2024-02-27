@@ -1,5 +1,4 @@
 @echo off
-setlocal
 
 SET _weapon.name=Bâton de bois
 SET _weapon.class=Mage
@@ -8,3 +7,7 @@ SET _weapon.magic_power=5
 SET _weapon.force=1
 SET _weapon.type=Magic
 
+GOTO %1
+
+:name
+SET %~2=%_weapon.name%

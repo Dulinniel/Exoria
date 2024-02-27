@@ -8,3 +8,7 @@ SET _weapon.magic_power=0
 SET _weapon.force=7
 SET _weapon.type=Physic
 
+GOTO %1
+
+:name
+SET %~2=%_weapon.name%
