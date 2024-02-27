@@ -15,5 +15,6 @@ FOR /r %_pickupFolder% %%A IN (*.bat) DO (
 
 SET /a _index=%random% %% %_count%
 CALL !WEAPON_%_index%! name _chosen
+REM Use _chosen variable to update it here and being able to pass it as reference in the calling program
 ECHO %_chosen% >> NUL
 endlocal & SET %~3=%_chosen%
