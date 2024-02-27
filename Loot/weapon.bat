@@ -1,34 +1,19 @@
 @echo off
+setlocal EnableDelayedExpansion
 
 SET _weaponFolder=%cd%\Weapons
-SET _uniqueWeaponFolder=%_weaponFolder%\Unique
-SET _legendaryWeaponFolder=%_weaponFolder%\Legendary
-SET _rareWeaponFolder=%_weaponFolder%\Rare
-SET _uncommonWeaponFolder=%_weaponFolder%\Uncommon
-SET _commonWeaponFolder=%_weaponFolder%\Common
+SET _pickupFolder=%_weaponFolder%\%1\%2
+SET _count=0
+SET _index=0
+SET _chosen=
 
-GOTO %1
+REM put all the files into a pseudo-array prefixed with "WEAPON_"
+FOR /r %_pickupFolder% %%A IN (*.bat) DO (
+  SET WEAPON_!_count!=%%~A
+  SET /a _count+=1
+)
 
-:common
-  FOR /f "tokens=*" %%G IN ('DIR %_commonWeaponFolder%\*.* ^| find "/"') DO SET /a _max_bound+=1
-  SET /a _max_bound-=2
-  SET /a %~2=%random% %% %_max_bound% + 1
-:uncommon
-  FOR /f "tokens=*" %%G IN ('DIR %_uncommonWeaponFolder%\*.* ^| find "/"') DO SET /a _max_bound+=1
-  SET /a _max_bound-=2
-  SET /a %~2=%random% %% %_max_bound% + 1
-
-:rare
-  FOR /f "tokens=*" %%G IN ('DIR %_rareWeaponFolder%\*.* ^| find "/"') DO SET /a _max_bound+=1
-  SET /a _max_bound-=2
-  SET /a %~2=%random% %% %_max_bound% + 1
-
-:legendary
-  FOR /f "tokens=*" %%G IN ('DIR %_legendaryWeaponFolder%\*.* ^| find "/"') DO SET /a _max_bound+=1
-  SET /a _max_bound-=2
-  SET /a %~2=%random% %% %_max_bound% + 1
-
-:unique
-  FOR /f "tokens=*" %%G IN ('DIR %_uniqueWeaponFolder%\*.* ^| find "/"') DO SET /a _max_bound+=1
-  SET /a _max_bound-=2
-  SET /a %~2=%random% %% %_max_bound% + 1
+SET /a _index=%random% %% %_count%
+CALL !WEAPON_%_index%! name _chosen
+ECHO %_chosen% >> NUL
+endlocal & SET %~3=%_chosen%
