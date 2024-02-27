@@ -1,5 +1,4 @@
 @echo off
-
 SET weapon=
 TITLE Exoria - Introduction
 CLS
@@ -25,6 +24,6 @@ ECHO A. Oui, je le suis
 ECHO B. Non, laisse moi y r‚fl‚chir
 CHOICE /C AB /N /M "> "
 IF %ERRORLEVEL%==2 GOTO introduction_save_point
-IF %ERRORLEVEL%==1 CALL %_lootFunctionFolderLocation%\weapon.bat common weapon
+IF %ERRORLEVEL%==1 CALL %_lootFunctionFolderLocation%\weapon.bat Common %_class% weapon
 
 ECHO %weapon%
