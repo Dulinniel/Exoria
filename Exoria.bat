@@ -1,5 +1,4 @@
 @echo off
-setlocal
 
 : Foreground and Background ANSI color shortcuts
 SET _fBlack=[30m
