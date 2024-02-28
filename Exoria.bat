@@ -35,6 +35,9 @@ SET _fBWhite=[97m
 SET _bBWhite=[107m
 SET _RESET=[0m
 
+SET _tUnderline=[4m
+SET _ResetUnderlined=[24m
+
 : Default save files location
 SET _storyFolderLocation=%cd%\Chapters
 SET _saveFolderLocation=%cd%\Saves
