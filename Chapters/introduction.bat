@@ -1,5 +1,4 @@
 @echo off
-SET weapon=
 TITLE Exoria - Introduction
 CLS
 COPY NUL %_positionFileLocation% > NUL
@@ -26,4 +25,4 @@ CHOICE /C AB /N /M "> "
 IF %ERRORLEVEL%==2 GOTO introduction_save_point
 IF %ERRORLEVEL%==1 CALL %_lootFunctionFolderLocation%\weapon.bat Common %_class% weapon
 
-ECHO %weapon%
+PAUSE
