@@ -18,4 +18,5 @@ SET /a _index=%random% %% %_count%
 CALL !WEAPON_%_index%! name _chosen
 REM Add the weapon to the inventory
 CALL %_inventoryManager% add "%_chosen%" 1 !WEAPON_%_index%!
-endlocal & SET %~3=%_chosen%
+ECHO %_fGreen%%_tUnderline%Bravo, tu as obtenu %_chosen%%_ResetUnderlined%%_RESET%
+endlocal
